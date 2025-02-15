@@ -19,11 +19,27 @@ Faster WhisperモデルをFastAPI経由でAPI化したプロジェクトです�
 
 ### Dockerで実行
 1. Dockerイメージのビルド
+```
 docker build -t faster-whisper-api .
+```
 
 2. コンテナの起動
+```
 docker run -p 8000:8000 -e API_KEY=your_api_key faster-whisper-api
+```
 
 ### エンドポイント
 - **POST /transcribe**  
 音声ファイル（multipart/form-data）をアップロードし、文字起こし結果を取得。
+
+```
+curl -X POST "http://localhost:8000/transcribe" \
+  -H "Authorization: your_api_key" \
+  -F "file=@/path/to/audio_file.mp3"
+```
+
+```
+{
+  "text": "ここに文字起こしされたテキストが入ります。"
+}
+```
