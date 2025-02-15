@@ -24,12 +24,6 @@ docker build -t faster-whisper-api .
 2. コンテナの起動
 docker run -p 8000:8000 -e API_KEY=your_api_key faster-whisper-api
 
-
 ### エンドポイント
 - **POST /transcribe**  
 音声ファイル（multipart/form-data）をアップロードし、文字起こし結果を取得。
-
-## 注意点
-- Dockerfileがサンプル内で重複して記載されているため、実際のリポジトリでは1つにまとめてください。
-- 不要なコードは特に見受けられません。
-
