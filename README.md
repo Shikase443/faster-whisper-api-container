@@ -15,7 +15,7 @@ Faster WhisperモデルをFastAPI経由でAPI化したプロジェクトです�
 - `MODEL`: Whisperモデル名（デフォルト："base"）
 - `USE_CUDA`: CUDA使用設定（"true"または"false"、デフォルト："false"）
 - `THRESHOLD_DB`: 音量閾値（デフォルト：-50）
-- `LANGUAGE`: 言語設定（デフォルト："ja"）
+- `LANGUAGE`: 言語設定（デフォルト："ja" , https://github.com/openai/whisper/blob/main/whisper/tokenizer.py#L10-L111 )
 
 ### Dockerで実行
 1. Dockerイメージのビルド
@@ -24,6 +24,7 @@ docker build -t faster-whisper-api .
 ```
 
 2. コンテナの起動
+- CPUのみ
 ```
 docker run -p 8000:8000 -e API_KEY=your_api_key faster-whisper-api
 ```
