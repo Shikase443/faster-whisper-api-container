@@ -24,9 +24,13 @@ docker build -t faster-whisper-api .
 ```
 
 2. コンテナの起動
-- CPUのみ
+- CPU
 ```
 docker run -p 8000:8000 -e API_KEY=your_api_key faster-whisper-api
+```
+- CUDA
+```
+docker run -p 8000:8000 --gpus all -e USE_CUDA=true -e API_KEY=your_api_key faster-whisper-api
 ```
 
 ### エンドポイント
